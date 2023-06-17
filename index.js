@@ -1,8 +1,8 @@
-const API_KEY = '0449c509af4fbbbcdc56d57255a2347e';
+require('dotenv').config()
+const API_KEY = process.env.API_KEY;
 const searchButton = document.querySelector('#searchButton');
 const cityInput = document.querySelector('#cityInput');
 const searchedCityElement = document.querySelector('#searchedCity');
-
 
 function displaySearchHistory() {
     // Get the search history container
