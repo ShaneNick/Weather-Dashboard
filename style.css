@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.searchWrapper {
+    width: 20%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.searchWrapper label {
+    margin-bottom: 10px;
+    font-size: 40px;
+    color: black;
+    margin-bottom: 20px; /* Add space between the label and the input */
+}
+
+.searchWrapper input,
+.searchWrapper button {
+    padding: 5px;
+    border: none;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px; /* Add space between the input and the button */
+}
+
+.searchWrapper input {
+    border: 1px solid black;
+}
+
+
+#searchHistory {
+    width: 100%;
+}
+
+#searchHistory p {
+    background-color: gray;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.searchWrapper button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    width: 100%; 
+   
+}
+
+.tophalf {
+    display: flex;
+    justify-content: space-between;
+}
+
+#searchedCity {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid transparent; /* Initially hide the border */
+    margin: 100px;
+}
+
+  
+
+#searchedCity.withBorder {
+    border: 1px solid gray; /* Show the border when the 'withBorder' class is added */
+  }
+
+.weeklyTemp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -80px;
+    padding-left: 90px;
+}
+
+#forecastHeaderContainer {
+    display: none;
+}
+
+#forecastCardsContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+#day1, #day2, #day3, #day4, #day5 {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    background-color: #2f2f2f;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    display: none;
+}
