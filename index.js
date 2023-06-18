@@ -1,6 +1,8 @@
+const API_KEY = '0449c509af4fbbbcdc56d57255a2347e';
 const searchButton = document.querySelector('#searchButton');
 const cityInput = document.querySelector('#cityInput');
 const searchedCityElement = document.querySelector('#searchedCity');
+
 
 function displaySearchHistory() {
     // Get the search history container
@@ -49,7 +51,22 @@ searchButton.addEventListener('click', function () {
     // Display the updated search history
     displaySearchHistory();
 
-    fetch(`/weather/${cityName}`)
+    const geocodingUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
+
+    fetch(geocodingUrl)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Geocoding request failed');
+            }
+        })
+        .then(data => {
+            const city = data[0];
+            const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${API_KEY}`;
+
+            return fetch(forecastUrl);
+        })
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -60,7 +77,7 @@ searchButton.addEventListener('click', function () {
         .then(data => {
             displayWeather(data);
             searchedCityElement.style.borderColor = 'black';
-            // Show the border after the search is successful
+         // Show the border after the search is successful
           })
         .catch(error => {
             console.error('Error:', error);
@@ -109,7 +126,7 @@ function displayWeather(data) {
     windElement.textContent = `Wind speed: ${currentWeather.wind.speed} m/s`;
     humidityElement.textContent = `Humidity: ${currentWeather.main.humidity} %`;
 
-       
+
     // Update 5-day forecast
     const forecastElements = [
         document.querySelector('#day1'),
