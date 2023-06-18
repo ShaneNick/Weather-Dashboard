@@ -51,7 +51,7 @@ searchButton.addEventListener('click', function () {
     // Display the updated search history
     displaySearchHistory();
 
-    const geocodingUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
+    const geocodingUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
 
     fetch(geocodingUrl)
         .then(response => {
